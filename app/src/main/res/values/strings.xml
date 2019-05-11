@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Restaurants</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="dialog_no_connection_message">Check Internet Connection</string>
+
+    <string name="dialog_general_error_message">Unknown error</string>
+
+    <string name="dialog_ok_button">OK</string>
+
+    <string name="dialog_empty_restaurant_description_message">No description provided</string>
+
+    <string name="dialog_grant_permissions_in_settings_message">Open system settings and grant location permission for this app</string>
+
+    <string name="dialog_rating_message">Rating: </string>
+
+</resources>
