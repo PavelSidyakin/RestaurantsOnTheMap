@@ -70,7 +70,7 @@ class MapsViewPresenter
             locationManager?.requestLocationUpdates(LocationManager.GPS_PROVIDER, 400, 1000f, this)
         }
 
-        val searchRestaurantsDisposable: Disposable = newCoordinatesObservable.flatMap { mapPosition: MapPosition ->
+        val searchRestaurantsDisposable: Disposable = newCoordinatesObservable.switchMap { mapPosition: MapPosition ->
                 if (mapPosition.zoom > MINIMUM_ZOOM_FOR_SEARCH) {
                     placesInteractor.searchRestaurants(mapPosition.lat, mapPosition.lng, 250)
                 } else
@@ -162,8 +162,7 @@ class MapsViewPresenter
             "\n\n" + if (restaurantDetails?.rating != null) applicationProvider.applicationContext.getString(R.string.dialog_rating_message) + "${restaurantDetails.rating}" else ""
     }
 
-    @VisibleForTesting
-    open fun formatRestaurantDescription(restaurant: Restaurant): String {
+    fun formatRestaurantDescription(restaurant: Restaurant): String {
         return restaurant.name + (if (!restaurant.address.isBlank()) " @ ${restaurant.address}" else "" )
     }
 
