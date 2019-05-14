@@ -2,14 +2,10 @@ package com.example.di
 
 import com.example.data.ApplicationProviderImpl
 import com.example.data.FoursquareRepositoryImpl
-import com.example.data.FoursquareUrlsGenerator
-import com.example.data.FoursquareUrlsGeneratorImpl
 import com.example.domain.ApplicationProvider
 import com.example.domain.FoursquareRepository
 import com.example.domain.PlacesInteractor
 import com.example.domain.PlacesInteractorImpl
-import com.example.utils.HttpClient
-import com.example.utils.HttpClientImpl
 import com.example.utils.Logger
 import com.example.utils.LoggerImpl
 import com.example.utils.NetworkUtils
@@ -35,10 +31,6 @@ abstract class AppModule {
 
     @Singleton
     @Binds
-    abstract fun provideHttpClient(httpClient: HttpClientImpl) : HttpClient
-
-    @Singleton
-    @Binds
     abstract fun provideNetworkUtils(networkUtils: NetworkUtilsImpl) : NetworkUtils
 
     @Singleton
@@ -52,10 +44,6 @@ abstract class AppModule {
     @Singleton
     @Binds
     abstract fun provideSchedulersProvider(schedulersProvider: SchedulersProviderImpl) : SchedulersProvider
-
-    @Singleton
-    @Binds
-    abstract fun provideFoursquareUrlsGenerator(foursquareUrlsGenerator: FoursquareUrlsGeneratorImpl) : FoursquareUrlsGenerator
 
     @Singleton
     @Binds
